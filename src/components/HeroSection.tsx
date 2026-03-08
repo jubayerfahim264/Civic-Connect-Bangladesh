@@ -126,12 +126,12 @@ const HeroSection = () => {
           {showResults && query.trim() && (
             <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl border border-border bg-card shadow-xl animate-fade-in">
               {results.length > 0 ? (
-                <ul className="divide-y divide-border">
-                  {results.map((svc) => (
-                    <li key={svc.subtitle}>
+                <ul role="listbox" className="divide-y divide-border">
+                  {results.map((svc, index) => (
+                    <li key={svc.subtitle} role="option" id={`search-result-${index}`} aria-selected={index === activeIndex}>
                       <button
                         onClick={() => handleSelect(svc)}
-                        className="flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors hover:bg-secondary"
+                        className={`flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors hover:bg-secondary ${index === activeIndex ? "bg-secondary" : ""}`}
                       >
                         <div
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${svc.color}`}
