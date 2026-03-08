@@ -97,11 +97,16 @@ const HeroSection = () => {
           <div className="flex items-center overflow-hidden rounded-xl bg-card shadow-2xl shadow-navy-dark/30">
             <Search className="ml-4 h-5 w-5 shrink-0 text-muted-foreground sm:ml-5" />
             <input
+              ref={inputRef}
               type="text"
+              role="combobox"
+              aria-expanded={showResults && results.length > 0}
+              aria-activedescendant={activeIndex >= 0 ? `search-result-${activeIndex}` : undefined}
               placeholder="সেবা খুঁজুন... (e.g., Passport, NID, Birth Certificate)"
               className="font-bangla flex-1 bg-transparent px-3 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none sm:px-4 sm:py-4 md:text-base"
               value={query}
               onChange={(e) => handleInputChange(e.target.value)}
+              onKeyDown={handleKeyDown}
               onFocus={() => query.trim() && setShowResults(true)}
             />
             {query && (
