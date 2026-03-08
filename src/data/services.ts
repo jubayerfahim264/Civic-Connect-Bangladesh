@@ -5,6 +5,11 @@ import {
   Receipt,
   Baby,
   Briefcase,
+  Car,
+  Hash,
+  Heart,
+  GraduationCap,
+  Stethoscope,
   type LucideIcon,
 } from "lucide-react";
 
