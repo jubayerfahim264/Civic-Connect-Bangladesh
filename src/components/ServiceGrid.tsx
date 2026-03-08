@@ -1,21 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import {
-  FileText,
-  CreditCard,
-  MapPin,
-  Receipt,
-  Baby,
-  Briefcase,
-} from "lucide-react";
-
-const services = [
-  { icon: FileText, label: "পাসপোর্ট", subtitle: "Passport", description: "আবেদন, নবায়ন ও ট্র্যাকিং", color: "bg-primary", link: "/services/passport" },
-  { icon: CreditCard, label: "জাতীয় পরিচয়পত্র", subtitle: "NID Card", description: "নিবন্ধন ও সংশোধন", color: "bg-accent", link: "" },
-  { icon: MapPin, label: "ভূমি রেজিস্ট্রি", subtitle: "Land Registry", description: "জমির রেকর্ড ও মিউটেশন", color: "bg-civic-green", link: "" },
-  { icon: Receipt, label: "ভূমি কর", subtitle: "Land Tax", description: "অনলাইনে খাজনা পরিশোধ", color: "bg-civic-gold", link: "" },
-  { icon: Baby, label: "জন্ম নিবন্ধন", subtitle: "Birth Certificate", description: "জন্ম সনদ আবেদন ও ডাউনলোড", color: "bg-destructive", link: "" },
-  { icon: Briefcase, label: "ট্রেড লাইসেন্স", subtitle: "Trade License", description: "ব্যবসা লাইসেন্স আবেদন", color: "bg-navy-light", link: "" },
-];
+import { services } from "@/data/services";
 
 const ServiceGrid = () => {
   const navigate = useNavigate();
