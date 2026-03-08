@@ -5,10 +5,9 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "#services" },
-    { label: "Updates", href: "#updates" },
     { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
@@ -23,7 +22,6 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <a
@@ -42,7 +40,6 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -52,7 +49,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-card px-6 py-4 md:hidden animate-fade-in">
           {links.map((l) => (
