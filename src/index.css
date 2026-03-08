@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -54,6 +54,7 @@
 
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'DM Sans', sans-serif;
+    --font-bangla: 'Hind Siliguri', sans-serif;
   }
 
   .dark {
@@ -112,5 +113,8 @@
     background: linear-gradient(135deg, hsl(220 60% 20%), hsl(196 80% 44%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  .font-bangla {
+    font-family: var(--font-bangla);
   }
 }
