@@ -7,7 +7,9 @@ import { filterServices, type Service } from "@/data/services";
 const HeroSection = () => {
   const [query, setQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const results = filterServices(query);
