@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   FileText,
   CreditCard,
@@ -8,15 +9,17 @@ import {
 } from "lucide-react";
 
 const services = [
-  { icon: FileText, label: "পাসপোর্ট", subtitle: "Passport", description: "আবেদন, নবায়ন ও ট্র্যাকিং", color: "bg-primary" },
-  { icon: CreditCard, label: "জাতীয় পরিচয়পত্র", subtitle: "NID Card", description: "নিবন্ধন ও সংশোধন", color: "bg-accent" },
-  { icon: MapPin, label: "ভূমি রেজিস্ট্রি", subtitle: "Land Registry", description: "জমির রেকর্ড ও মিউটেশন", color: "bg-civic-green" },
-  { icon: Receipt, label: "ভূমি কর", subtitle: "Land Tax", description: "অনলাইনে খাজনা পরিশোধ", color: "bg-civic-gold" },
-  { icon: Baby, label: "জন্ম নিবন্ধন", subtitle: "Birth Certificate", description: "জন্ম সনদ আবেদন ও ডাউনলোড", color: "bg-destructive" },
-  { icon: Briefcase, label: "ট্রেড লাইসেন্স", subtitle: "Trade License", description: "ব্যবসা লাইসেন্স আবেদন", color: "bg-navy-light" },
+  { icon: FileText, label: "পাসপোর্ট", subtitle: "Passport", description: "আবেদন, নবায়ন ও ট্র্যাকিং", color: "bg-primary", link: "/services/passport" },
+  { icon: CreditCard, label: "জাতীয় পরিচয়পত্র", subtitle: "NID Card", description: "নিবন্ধন ও সংশোধন", color: "bg-accent", link: "" },
+  { icon: MapPin, label: "ভূমি রেজিস্ট্রি", subtitle: "Land Registry", description: "জমির রেকর্ড ও মিউটেশন", color: "bg-civic-green", link: "" },
+  { icon: Receipt, label: "ভূমি কর", subtitle: "Land Tax", description: "অনলাইনে খাজনা পরিশোধ", color: "bg-civic-gold", link: "" },
+  { icon: Baby, label: "জন্ম নিবন্ধন", subtitle: "Birth Certificate", description: "জন্ম সনদ আবেদন ও ডাউনলোড", color: "bg-destructive", link: "" },
+  { icon: Briefcase, label: "ট্রেড লাইসেন্স", subtitle: "Trade License", description: "ব্যবসা লাইসেন্স আবেদন", color: "bg-navy-light", link: "" },
 ];
 
 const ServiceGrid = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="services" className="bg-background py-16 sm:py-20">
       <div className="container">
@@ -36,6 +39,7 @@ const ServiceGrid = () => {
           {services.map((svc, i) => (
             <button
               key={svc.subtitle}
+              onClick={() => svc.link && navigate(svc.link)}
               className="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg opacity-0 animate-fade-up sm:p-6"
               style={{ animationDelay: `${i * 0.07}s` }}
             >
