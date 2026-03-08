@@ -7,7 +7,9 @@ import { filterServices, type Service } from "@/data/services";
 const HeroSection = () => {
   const [query, setQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const results = filterServices(query);
@@ -32,6 +34,25 @@ const HeroSection = () => {
   const handleInputChange = (value: string) => {
     setQuery(value);
     setShowResults(true);
+    setActiveIndex(-1);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!showResults || results.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveIndex((prev) => (prev < results.length - 1 ? prev + 1 : 0));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIndex((prev) => (prev > 0 ? prev - 1 : results.length - 1));
+    } else if (e.key === "Enter" && activeIndex >= 0) {
+      e.preventDefault();
+      handleSelect(results[activeIndex]);
+    } else if (e.key === "Escape") {
+      setShowResults(false);
+      setActiveIndex(-1);
+    }
   };
 
   const clearQuery = () => {
@@ -76,11 +97,16 @@ const HeroSection = () => {
           <div className="flex items-center overflow-hidden rounded-xl bg-card shadow-2xl shadow-navy-dark/30">
             <Search className="ml-4 h-5 w-5 shrink-0 text-muted-foreground sm:ml-5" />
             <input
+              ref={inputRef}
               type="text"
+              role="combobox"
+              aria-expanded={showResults && results.length > 0}
+              aria-activedescendant={activeIndex >= 0 ? `search-result-${activeIndex}` : undefined}
               placeholder="সেবা খুঁজুন... (e.g., Passport, NID, Birth Certificate)"
               className="font-bangla flex-1 bg-transparent px-3 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none sm:px-4 sm:py-4 md:text-base"
               value={query}
               onChange={(e) => handleInputChange(e.target.value)}
+              onKeyDown={handleKeyDown}
               onFocus={() => query.trim() && setShowResults(true)}
             />
             {query && (
@@ -100,12 +126,12 @@ const HeroSection = () => {
           {showResults && query.trim() && (
             <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl border border-border bg-card shadow-xl animate-fade-in">
               {results.length > 0 ? (
-                <ul className="divide-y divide-border">
-                  {results.map((svc) => (
-                    <li key={svc.subtitle}>
+                <ul role="listbox" className="divide-y divide-border">
+                  {results.map((svc, index) => (
+                    <li key={svc.subtitle} role="option" id={`search-result-${index}`} aria-selected={index === activeIndex}>
                       <button
                         onClick={() => handleSelect(svc)}
-                        className="flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors hover:bg-secondary"
+                        className={`flex w-full items-center gap-3.5 px-5 py-3.5 text-left transition-colors hover:bg-secondary ${index === activeIndex ? "bg-secondary" : ""}`}
                       >
                         <div
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${svc.color}`}
