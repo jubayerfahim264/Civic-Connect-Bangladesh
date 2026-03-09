@@ -42,6 +42,7 @@ const ServiceCategories = () => {
           {categories.map((cat, i) => (
             <button
               key={cat.label}
+              onClick={() => trackServiceVisit(cat.label, "#")}
               className="group flex flex-col items-start rounded-xl border border-border bg-card p-6 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg opacity-0 animate-fade-up"
               style={{ animationDelay: `${i * 0.06}s` }}
             >
