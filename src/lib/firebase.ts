@@ -5,12 +5,13 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 // Firebase config — these are publishable client-side keys.
 // Replace with your own Firebase project config.
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyAES1vuarXz2aWHTIv9utEMT_VGm1gQo2Y",
+  authDomain: "civicconnect-bangladesh.firebaseapp.com",
+  projectId: "civicconnect-bangladesh",
+  storageBucket: "civicconnect-bangladesh.firebasestorage.app",
+  messagingSenderId: "852202875693",
+  appId: "1:852202875693:web:0448348e140d379af781a4",
+  measurementId: "G-WQ3P7QMC0P",
 };
 
 const app = initializeApp(firebaseConfig);
