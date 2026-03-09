@@ -20,6 +20,8 @@ const categories = [
   { icon: Users, label: "Social Services", description: "Allowances, social safety net programs", color: "bg-accent" },
 ];
 
+import { trackServiceVisit } from "@/lib/trackServiceVisit";
+
 const ServiceCategories = () => {
   return (
     <section id="services" className="bg-background py-20">
