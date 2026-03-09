@@ -173,6 +173,50 @@ const Profile = () => {
               </div>
             </div>
 
+            {/* Service History */}
+            <div className="rounded-lg border border-border p-4 space-y-3">
+              <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
+                <History className="h-4 w-4" /> Recently Visited Services
+              </h3>
+              {serviceHistory.length === 0 ? (
+                <p className="text-sm text-muted-foreground">
+                  No services visited yet. Browse services to build your history.
+                </p>
+              ) : (
+                <div className="space-y-2">
+                  {serviceHistory.map((visit) => (
+                    <a
+                      key={visit.category}
+                      href={visit.link}
+                      onClick={(e) => {
+                        if (visit.link.startsWith("/")) {
+                          e.preventDefault();
+                          navigate(visit.link);
+                        }
+                      }}
+                      className="flex items-center justify-between rounded-lg border border-border bg-muted/50 p-3 transition-colors hover:bg-muted group"
+                    >
+                      <div>
+                        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                          {visit.category}
+                        </span>
+                        <p className="text-xs text-muted-foreground">
+                          Last visited: {new Date(visit.lastVisited).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {/* Logout */}
             <Button
               variant="outline"
