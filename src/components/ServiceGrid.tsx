@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { services } from "@/data/services";
+import { trackServiceVisit } from "@/lib/trackServiceVisit";
 
 const ServiceGrid = () => {
   const navigate = useNavigate();
