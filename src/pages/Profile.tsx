@@ -40,6 +40,9 @@ const Profile = () => {
           const snap = await getDoc(doc(db, "users", user.uid));
           if (snap.exists()) {
             setSubscribed(snap.data().subscribedToEmails ?? false);
+            const history: ServiceVisit[] = snap.data().serviceHistory ?? [];
+            history.sort((a, b) => new Date(b.lastVisited).getTime() - new Date(a.lastVisited).getTime());
+            setServiceHistory(history);
           }
         } catch (error: any) {
           console.error("Error fetching profile:", error);
