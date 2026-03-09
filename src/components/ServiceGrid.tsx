@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { services } from "@/data/services";
+import { trackServiceVisit } from "@/lib/trackServiceVisit";
 
 const ServiceGrid = () => {
   const navigate = useNavigate();
@@ -23,7 +24,12 @@ const ServiceGrid = () => {
           {services.map((svc, i) => (
             <button
               key={svc.subtitle}
-              onClick={() => svc.link && navigate(svc.link)}
+              onClick={() => {
+                if (svc.link) {
+                  trackServiceVisit(svc.subtitle, svc.link);
+                  navigate(svc.link);
+                }
+              }}
               className="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg opacity-0 animate-fade-up sm:p-6"
               style={{ animationDelay: `${i * 0.07}s` }}
             >
