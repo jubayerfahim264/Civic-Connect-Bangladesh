@@ -4,6 +4,7 @@ import { signOut } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import { useAuth } from "@/hooks/useAuth";
+import { ServiceVisit } from "@/lib/trackServiceVisit";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -16,7 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User, Mail, Bell, LogOut } from "lucide-react";
+import { User, Mail, Bell, LogOut, History, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Profile = () => {
