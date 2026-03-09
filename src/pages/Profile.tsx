@@ -25,6 +25,7 @@ const Profile = () => {
   const [subscribed, setSubscribed] = useState(false);
   const [saving, setSaving] = useState(false);
   const [loadingProfile, setLoadingProfile] = useState(true);
+  const [serviceHistory, setServiceHistory] = useState<ServiceVisit[]>([]);
   const navigate = useNavigate();
   const { toast } = useToast();
 
