@@ -1,9 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "@/lib/firebase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,8 +18,13 @@ import { LogIn, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import { log } from "console";
 
-const ensureUserDoc = async (uid: string, email: string | null, name: string | null) => {
+const ensureUserDoc = async (
+  uid: string,
+  email: string | null,
+  name: string | null,
+) => {
   const ref = doc(db, "users", uid);
   const snap = await getDoc(ref);
   if (!snap.exists()) {
@@ -46,7 +49,11 @@ const Login = () => {
     setLoading(true);
     try {
       const cred = await signInWithEmailAndPassword(auth, email, password);
-      await ensureUserDoc(cred.user.uid, cred.user.email, cred.user.displayName);
+      await ensureUserDoc(
+        cred.user.uid,
+        cred.user.email,
+        cred.user.displayName,
+      );
       navigate("/profile");
     } catch (error: any) {
       toast({
@@ -54,6 +61,7 @@ const Login = () => {
         description: error.message,
         variant: "destructive",
       });
+      console.log("From Login Pagr: ", error);
     } finally {
       setLoading(false);
     }
@@ -62,7 +70,11 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       const cred = await signInWithPopup(auth, googleProvider);
-      await ensureUserDoc(cred.user.uid, cred.user.email, cred.user.displayName);
+      await ensureUserDoc(
+        cred.user.uid,
+        cred.user.email,
+        cred.user.displayName,
+      );
       navigate("/profile");
     } catch (error: any) {
       toast({
@@ -80,7 +92,9 @@ const Login = () => {
           <div className="mx-auto w-14 h-14 rounded-full gradient-navy flex items-center justify-center">
             <LogIn className="w-7 h-7 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl text-foreground">Welcome Back</CardTitle>
+          <CardTitle className="text-2xl text-foreground">
+            Welcome Back
+          </CardTitle>
           <CardDescription className="text-muted-foreground">
             Sign in to your CivicConnect account
           </CardDescription>
@@ -138,7 +152,7 @@ const Login = () => {
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="***********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -153,7 +167,10 @@ const Login = () => {
         <CardFooter className="justify-center">
           <p className="text-sm text-muted-foreground">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-primary font-medium hover:underline">
+            <Link
+              to="/signup"
+              className="text-primary font-medium hover:underline"
+            >
               Sign Up
             </Link>
           </p>

@@ -3,6 +3,7 @@ export interface AdminService {
   title: string;
   category: string;
   description: string;
+  imageUrl?: string;           // optional URL for a card image
   steps: string[];
   createdAt?: number;
   updatedAt?: number;

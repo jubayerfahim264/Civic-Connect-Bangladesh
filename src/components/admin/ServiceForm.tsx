@@ -26,10 +26,16 @@ interface ServiceFormProps {
   initialData?: AdminService | null;
 }
 
-const ServiceForm = ({ open, onOpenChange, onSubmit, initialData }: ServiceFormProps) => {
+const ServiceForm = ({
+  open,
+  onOpenChange,
+  onSubmit,
+  initialData,
+}: ServiceFormProps) => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [steps, setSteps] = useState<string[]>([""]);
 
   useEffect(() => {
@@ -37,11 +43,13 @@ const ServiceForm = ({ open, onOpenChange, onSubmit, initialData }: ServiceFormP
       setTitle(initialData.title);
       setCategory(initialData.category);
       setDescription(initialData.description);
+      setImageUrl(initialData.imageUrl ?? "");
       setSteps(initialData.steps.length > 0 ? initialData.steps : [""]);
     } else {
       setTitle("");
       setCategory("");
       setDescription("");
+      setImageUrl("");
       setSteps([""]);
     }
   }, [initialData, open]);
@@ -67,6 +75,7 @@ const ServiceForm = ({ open, onOpenChange, onSubmit, initialData }: ServiceFormP
       title,
       category,
       description,
+      imageUrl: imageUrl || undefined,
       steps: filteredSteps,
       updatedAt: Date.now(),
       ...(initialData ? {} : { createdAt: Date.now() }),
@@ -123,6 +132,16 @@ const ServiceForm = ({ open, onOpenChange, onSubmit, initialData }: ServiceFormP
           </div>
 
           <div className="space-y-2">
+            <Label htmlFor="imageUrl">Image URL</Label>
+            <Input
+              id="imageUrl"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+              placeholder="https://example.com/image.png"
+            />
+          </div>
+
+          <div className="space-y-2">
             <Label>Step-by-Step Guide</Label>
             {steps.map((step, index) => (
               <div key={index} className="flex gap-2 items-start">
@@ -146,13 +165,22 @@ const ServiceForm = ({ open, onOpenChange, onSubmit, initialData }: ServiceFormP
                 </Button>
               </div>
             ))}
-            <Button type="button" variant="outline" size="sm" onClick={handleAddStep}>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={handleAddStep}
+            >
               <Plus className="h-4 w-4 mr-1" /> Add Step
             </Button>
           </div>
 
           <div className="flex justify-end gap-2 pt-2">
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => onOpenChange(false)}
+            >
               Cancel
             </Button>
             <Button type="submit">

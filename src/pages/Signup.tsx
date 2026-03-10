@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -53,6 +54,8 @@ const Signup = () => {
         description: error.message,
         variant: "destructive",
       });
+      console.log("From Signup Page: ",error);
+      
     } finally {
       setLoading(false);
     }

@@ -11,8 +11,16 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import UserDashboard from "./pages/UserDashboard";
+import AdminEditor from "./pages/AdminEditor";
+import Services from "./pages/Services";
+import ServiceDetails from "./pages/ServiceDetails";
+import Blog from "./pages/Blog";
+import BlogDetails from "./pages/BlogDetails";
+import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import { AdminLayout } from "./components/admin/AdminLayout";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +37,14 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/admin/editor" element={<AdminEditor />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/:id" element={<ServiceDetails />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/category/:category" element={<Blog />} />
+            <Route path="/blog/post/:id" element={<BlogDetails />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin"

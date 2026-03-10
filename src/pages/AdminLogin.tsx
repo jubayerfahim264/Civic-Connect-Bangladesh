@@ -1,11 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth, db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Shield, LogIn } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -19,13 +27,42 @@ const AdminLogin = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/admin");
+      // ১. প্রথমে ফায়ারবেস অথেন্টিকেশন
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      const user = userCredential.user;
+
+      // ২. ডাটাবেস থেকে এডমিন চেক করা
+      const adminDocRef = doc(db, "settings", "admin_config");
+      const snap = await getDoc(adminDocRef);
+
+      if (snap.exists()) {
+        const data = snap.data();
+        console.log("Firestore Admin Data:", data); // ডিবাগ করার জন্য
+
+        const authorizedEmail = data.adminEmail || data.email;
+
+        if (authorizedEmail === user.email) {
+          toast({ title: "Welcome Admin!", description: "Redirecting..." });
+          navigate("/admin");
+        } else {
+          throw new Error("You are not an authorized administrator.");
+        }
+      } else {
+        console.error("No such document in Firestore!");
+        throw new Error("Admin configuration missing in database.");
+      }
     } catch (error: any) {
+      console.error("Login Error:", error);
+      await signOut(auth); // অথরাইজড না হলে সাইন আউট করে দেয়া
       toast({
-        title: "Login Failed",
-        description: error.message || "Invalid credentials",
+        title: "Access Denied",
+        description: error.message || "Invalid login",
         variant: "destructive",
       });
     } finally {
@@ -40,7 +77,9 @@ const AdminLogin = () => {
           <div className="mx-auto w-14 h-14 rounded-full gradient-navy flex items-center justify-center">
             <Shield className="w-7 h-7 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl text-foreground">Admin Login</CardTitle>
+          <CardTitle className="text-2xl text-foreground">
+            Admin Login
+          </CardTitle>
           <CardDescription className="text-muted-foreground">
             CivicConnect Administration Panel
           </CardDescription>
@@ -63,7 +102,7 @@ const AdminLogin = () => {
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="*********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
