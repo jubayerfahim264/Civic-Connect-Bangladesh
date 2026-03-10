@@ -1,87 +1,62 @@
-<img src="https://flagcdn.com/w40/bd.png" width="30"/> Civic Connect Bangladesh
-
-<p align="center"> <img src="https://readme-typing-svg.herokuapp.com/?color=00A36C&size=28&center=true&vCenter=true&width=700&lines=Smart+Civic+Engagement+Platform;Connecting+Citizens+and+Authorities;Digital+Solution+for+Bangladesh;Built+with+Modern+Web+Technologies"/> </p> <p align="center">
 # <img src="https://flagcdn.com/w40/bd.png" width="30"/> Civic Connect Bangladesh
 
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com/?color=00A36C&size=32&center=true&vCenter=true&width=900&lines=Civic+Connect+Bangladesh;Smart+Civic+Engagement+Platform;Connecting+Citizens+and+Authorities"/>
+<img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="700"/>
 </p>
 
 <p align="center">
-![Stars](https://img.shields.io/github/stars/jubayerfahim264/Civic-Connect-Bangladesh?style=social)
-![Forks](https://img.shields.io/github/forks/jubayerfahim264/Civic-Connect-Bangladesh?style=social)
-![Issues](https://img.shields.io/github/issues/jubayerfahim264/Civic-Connect-Bangladesh)
-![License](https://img.shields.io/github/license/jubayerfahim264/Civic-Connect-Bangladesh)
-![Last Commit](https://img.shields.io/github/last-commit/jubayerfahim264/Civic-Connect-Bangladesh)
-</p>
-
-<p align="center">
-<img src="https://komarev.com/ghpvc/?username=jubayerfahim264&label=Repository%20Views&color=0e75b6&style=flat"/>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/stargazers"><img src="https://img.shields.io/github/stars/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=github&color=linear-gradient(to right, #00c6ff, #0072ff)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/network/members"><img src="https://img.shields.io/github/forks/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=git&color=linear-gradient(to right, #f7971e, #ffd200)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/issues"><img src="https://img.shields.io/github/issues/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=github&color=linear-gradient(to right, #ff512f, #dd2476)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/blob/main/LICENSE"><img src="https://img.shields.io/github/license/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&color=linear-gradient(to right, #0f2027, #2c5364)" /></a>
 </p>
 
 ---
 
 ## 📌 About The Project
-
-**Civic Connect Bangladesh** is a **digital platform** that connects citizens with local authorities and public service providers.  
-It allows users to **report civic issues, track progress, and receive real-time updates**. The platform promotes **transparency, civic engagement, and efficient problem-solving**.
-
----
-
-## 📱 Features
-
-### 👤 User Features
-- 📝 Report civic issues (roads, water, waste, etc.)  
-- 📍 Location-based issue reporting  
-- 📷 Upload images for evidence  
-- 🔔 Real-time status updates  
-- 💬 Feedback & comments  
-- 📊 Track report progress  
-- 🔍 Search and filter issues  
-
-### 🏛 Authority Features
-- 📥 Receive citizen reports  
-- 📊 Dashboard for issue management  
-- ✅ Update issue status  
-- 💬 Respond to citizens  
-- 📈 Analytics & reporting  
-
-### 🌍 Community Features
-- 📰 Public announcements  
-- 🗳 Community engagement  
-- 📢 Important local updates  
+**Civic Connect Bangladesh** is a **smart civic engagement platform** connecting citizens with local authorities.  
+It allows users to **report issues, track progress, upload proof, and get real-time updates**, promoting **transparency and accountability** in Bangladesh.  
 
 ---
 
-## ⚙️ Tech Stack
+## 🖼 Features (Interactive Cards Style)
+
+<div align="center">
+
+| Users | Authorities | Community |
+|-------|------------|----------|
+| 📝 Report issues | 📊 Manage reports | 📰 Public announcements |
+| 📍 Location-based reporting | ✅ Update status | 📢 Local updates |
+| 📷 Upload images | 💬 Respond to citizens | 🗳 Community engagement |
+| 🔔 Real-time updates | 📈 Analytics & reports | 🔍 Search & filter |
+
+</div>
+
+---
+
+## 🏗 Tech Stack
 
 **Frontend:** React.js, React Native (Expo), TailwindCSS  
 **Backend:** Node.js, Express.js, REST API  
 **Database:** Firebase Firestore / MongoDB  
-**Auth & Cloud:** Firebase Authentication, Storage, Push Notifications  
+**Cloud:** Firebase Auth, Storage, Push Notifications  
 
 ---
 
-## 📸 Project Screenshots
+## 📸 Screenshots
 
-### Home Page
-![Home](https://via.placeholder.com/900x500.png?text=Civic+Connect+Home)
-
-### Report Issue Page
-![Report](https://via.placeholder.com/900x500.png?text=Report+Issue)
-
-### Dashboard
-![Dashboard](https://via.placeholder.com/900x500.png?text=Admin+Dashboard)
-
-*(Replace placeholders with your actual screenshots)*
+<p align="center">
+<img src="https://via.placeholder.com/350x200.png?text=Home+Page" width="30%"/>
+<img src="https://via.placeholder.com/350x200.png?text=Report+Issue" width="30%"/>
+<img src="https://via.placeholder.com/350x200.png?text=Admin+Dashboard" width="30%"/>
+</p>
 
 ---
 
 ## 🛣 Roadmap
-
 - [x] Project setup  
 - [x] Issue reporting system  
-- [ ] Authentication system  
+- [ ] Authentication & login  
 - [ ] Smart map integration  
 - [ ] Admin dashboard  
 - [ ] Push notifications  
@@ -95,13 +70,33 @@ It allows users to **report civic issues, track progress, and receive real-time 
 
 ---
 
+## 👥 Contributors
+<p align="center">
+<img src="https://contrib.rocks/image?repo=jubayerfahim264/Civic-Connect-Bangladesh" />
+</p>
+
+---
+
+## 📊 GitHub Stats & Activity
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=jubayerfahim264&show_icons=true&theme=radical" width="45%"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=jubayerfahim264&theme=react-dark" width="45%"/>
+</p>
+
+---
+
+## 👀 Visitor Counter
+
+<p align="center">
+<img src="https://profile-counter.glitch.me/jubayerfahim264/count.svg" />
+</p>
+
+---
+
 ## 🤝 Contributing
 
 1️⃣ Fork the repo  
-2️⃣ Create feature branch  
+2️⃣ Create your branch  
 ```bash
 git checkout -b feature/new-feature
-<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=jubayerfahim264&show_icons=true&theme=tokyonight"/> <img src="https://github-readme-activity-graph.vercel.app/graph?username=jubayerfahim264&theme=react-dark"/> </p>
-📄 License
-
-MIT License
