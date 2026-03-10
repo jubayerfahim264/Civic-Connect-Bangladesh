@@ -5,6 +5,7 @@ import { signOut } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import { useAuth } from "@/hooks/useAuth";
+import { ServiceVisit } from "@/lib/trackServiceVisit";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -17,17 +18,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  User,
-  Mail,
-  Bell,
-  LogOut,
-  ExternalLink,
-  Clock,
-  History as HistoryIcon,
-} from "lucide-react";
+import { User, Mail, Bell, LogOut } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { ServiceVisit } from "@/lib/trackServiceVisit";
 
 const Profile = () => {
   const { user, loading: authLoading } = useAuth();
@@ -49,13 +41,6 @@ const Profile = () => {
           const snap = await getDoc(doc(db, "users", user.uid));
           if (snap.exists()) {
             setSubscribed(snap.data().subscribedToEmails ?? false);
-            const history: ServiceVisit[] = snap.data().serviceHistory ?? [];
-            history.sort(
-              (a, b) =>
-                new Date(b.lastVisited).getTime() -
-                new Date(a.lastVisited).getTime(),
-            );
-            setServiceHistory(history);
           }
         } catch (error: any) {
           console.error("Error fetching profile:", error);
@@ -81,7 +66,6 @@ const Profile = () => {
           ? "You'll receive email updates from CivicConnect."
           : "You won't receive email updates anymore.",
       });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast({
         title: "Error",
@@ -187,54 +171,6 @@ const Profile = () => {
                   disabled={saving}
                 />
               </div>
-            </div>
-            {/* Service History */}
-            <div className="rounded-lg border border-border p-4 space-y-3">
-              <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                <HistoryIcon className="h-4 w-4" /> Recently Visited Services
-              </h3>
-              {serviceHistory.length === 0 ? (
-                <p className="text-sm text-muted-foreground">
-                  No services visited yet. Browse services to build your
-                  history.
-                </p>
-              ) : (
-                <div className="space-y-2">
-                  {serviceHistory.map((visit) => (
-                    <a
-                      key={visit.category}
-                      href={visit.link}
-                      onClick={(e) => {
-                        if (visit.link.startsWith("/")) {
-                          e.preventDefault();
-                          navigate(visit.link);
-                        }
-                      }}
-                      className="flex items-center justify-between rounded-lg border border-border bg-muted/50 p-3 transition-colors hover:bg-muted group"
-                    >
-                      <div>
-                        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                          {visit.category}
-                        </span>
-                        <p className="text-xs text-muted-foreground">
-                          Last visited:{" "}
-                          {new Date(visit.lastVisited).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            },
-                          )}
-                        </p>
-                      </div>
-                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </a>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Logout */}

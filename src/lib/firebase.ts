@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "civicconnect-bangladesh.firebasestorage.app",
   messagingSenderId: "852202875693",
   appId: "1:852202875693:web:0448348e140d379af781a4",
-  measurementId: "G-WQ3P7QMC0P"
+  measurementId: "G-WQ3P7QMC0P",
 };
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
