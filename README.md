@@ -5,28 +5,28 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/stargazers"><img src="https://img.shields.io/github/stars/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=github&color=linear-gradient(to right, #00c6ff, #0072ff)" /></a>
-<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/network/members"><img src="https://img.shields.io/github/forks/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=git&color=linear-gradient(to right, #f7971e, #ffd200)" /></a>
-<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/issues"><img src="https://img.shields.io/github/issues/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=github&color=linear-gradient(to right, #ff512f, #dd2476)" /></a>
-<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/blob/main/LICENSE"><img src="https://img.shields.io/github/license/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&color=linear-gradient(to right, #0f2027, #2c5364)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/stargazers"><img src="https://img.shields.io/github/stars/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=github&color=linear-gradient(to right,#00c6ff,#0072ff)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/network/members"><img src="https://img.shields.io/github/forks/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=git&color=linear-gradient(to right,#f7971e,#ffd200)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/issues"><img src="https://img.shields.io/github/issues/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&logo=github&color=linear-gradient(to right,#ff512f,#dd2476)" /></a>
+<a href="https://github.com/jubayerfahim264/Civic-Connect-Bangladesh/blob/main/LICENSE"><img src="https://img.shields.io/github/license/jubayerfahim264/Civic-Connect-Bangladesh?style=for-the-badge&color=linear-gradient(to right,#0f2027,#2c5364)" /></a>
 </p>
 
 ---
 
 ## 📌 About The Project
 **Civic Connect Bangladesh** is a **smart civic engagement platform** connecting citizens with local authorities.  
-It allows users to **report issues, track progress, upload proof, and get real-time updates**, promoting **transparency and accountability** in Bangladesh.  
+Users can **report issues, track progress, upload evidence, and receive real-time updates**, promoting **transparency and accountability**.
 
 ---
 
-## 🖼 Features (Interactive Cards Style)
+## 🎨 Features (Interactive Hover Cards)
 
 <div align="center">
 
-| Users | Authorities | Community |
-|-------|------------|----------|
-| 📝 Report issues | 📊 Manage reports | 📰 Public announcements |
-| 📍 Location-based reporting | ✅ Update status | 📢 Local updates |
+| <div style="padding:10px;background:linear-gradient(to right,#00c6ff,#0072ff);border-radius:10px;">Users</div> | <div style="padding:10px;background:linear-gradient(to right,#f7971e,#ffd200);border-radius:10px;">Authorities</div> | <div style="padding:10px;background:linear-gradient(to right,#ff512f,#dd2476);border-radius:10px;">Community</div> |
+|--------|------------|----------|
+| 📝 Report civic issues | 📊 Dashboard management | 📰 Public announcements |
+| 📍 Location-based reporting | ✅ Update issue status | 📢 Local updates |
 | 📷 Upload images | 💬 Respond to citizens | 🗳 Community engagement |
 | 🔔 Real-time updates | 📈 Analytics & reports | 🔍 Search & filter |
 
@@ -43,12 +43,12 @@ It allows users to **report issues, track progress, upload proof, and get real-t
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots (Cards Style)
 
 <p align="center">
-<img src="https://via.placeholder.com/350x200.png?text=Home+Page" width="30%"/>
-<img src="https://via.placeholder.com/350x200.png?text=Report+Issue" width="30%"/>
-<img src="https://via.placeholder.com/350x200.png?text=Admin+Dashboard" width="30%"/>
+<img src="https://via.placeholder.com/350x200.png?text=Home+Page" width="30%" style="border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.2);"/>
+<img src="https://via.placeholder.com/350x200.png?text=Report+Issue" width="30%" style="border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.2);"/>
+<img src="https://via.placeholder.com/350x200.png?text=Admin+Dashboard" width="30%" style="border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.2);"/>
 </p>
 
 ---
